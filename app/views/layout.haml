@@ -2,8 +2,31 @@
 %html{lang: 'ja'}
   %head
     %meta{charset: 'utf-8'}
+    %link{type: 'text/css', rel: 'stylesheet', href: './css/bootstrap.min.css'}
+    %link{type: 'text/css', rel: 'stylesheet', href: 'css/original.css'}
+    %link{rel: 'shortcut icon', href: './image/kabu.png'}
+    %script{type: 'text/javascript', src: './script/jquery-1.11.2.min.js'}
+    %script{type: 'text/javascript', src: './script/bootstrap.min.js'}
     %title
-      hello,sinatras
+      俺のぬか漬け
   %body
-    %div
-      =yield
+    %nav.navbar.navbar-default.navbar-fixed-top
+      %a.navbar-brand{href: '/'}
+        俺のぬか漬け
+      %ul.nav.navbar-nav.navbar-right
+        %li.dropdown
+          - if @profile_image_icon
+            %a.dropdown-toggle{'data-toggle' => 'dropdown',href: '#'}
+              =@screen_name
+              %span.caret
+              %img.user-avatar{src: @profile_image_icon, width: '32', height: '32'}
+            %ul.dropdown-menu{'aria-labelledby' => 'themes'}
+              %li
+                %a{href: '/signout'}
+                  Sign out
+          - else
+            %a{href: '/auth/twitter'}
+              Sign in Twitter
+        %li
+          %div
+    =yield

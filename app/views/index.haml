@@ -1,4 +1,14 @@
-%h1
-  Hello,Sinatras
-%p
-  powerd by Sinatra
+%h2
+  俺のぬか漬け
+%div
+  %form{action: "/pickle", method: "post", name: "pickle"}
+    %p
+      %input{type: "image", src: "/image/kyuuri.png", alt: "kyuuri", name: "kyuuri"}
+      %input{type: "image", src: "/image/nasu.png", alt: "nasu", name: "nasu"}
+      %input{type: "image", src: "/image/nagaimo.png", alt: "nagaimo", name: "nagaimo"}
+      %input{type: "image", src: "/image/kabu.png", alt: "kabu", name: "kabu"}
+    %p
+      =@screenname
+      =@profile_image_icon
+      =@uid
+
